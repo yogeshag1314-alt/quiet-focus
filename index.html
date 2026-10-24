@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#214e3c">
+  <meta name="description" content="A calm, offline-friendly focus timer. One task, a little time, a fresh start.">
+  <title>Quiet Focus — One thing at a time</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Quiet Focus home"><span class="brand-mark" aria-hidden="true">q.</span> quiet focus</a>
+      <span class="header-note"><span class="dot"></span> A little space to do your best work</span>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="heading">
+        <p class="eyebrow">LESS NOISE. MORE INTENTION.</p>
+        <h1 id="heading">One thing.<br><em>One moment at a time.</em></h1>
+        <p class="subtitle">Give your attention somewhere good to land.</p>
+      </section>
+
+      <div class="workspace">
+        <section class="timer-card" aria-label="Focus timer">
+          <div class="mode-switch" role="group" aria-label="Timer mode">
+            <button id="focus-mode" class="mode active" aria-pressed="true">Focus</button>
+            <button id="break-mode" class="mode" aria-pressed="false">Short break</button>
+          </div>
+          <div class="timer-ring" id="timer-ring">
+            <div class="timer-face">
+              <span class="timer-caption" id="timer-caption">TIME TO FOCUS</span>
+              <span class="timer" id="timer" role="timer" aria-label="Time remaining">25:00</span>
+              <span class="timer-hint" id="timer-hint">A fresh start, whenever you need it.</span>
+            </div>
+          </div>
+          <div class="timer-actions">
+            <button class="primary" id="start">Start focus <span aria-hidden="true">↗</span></button>
+            <button class="reset" id="reset" aria-label="Reset timer" title="Reset timer">↺</button>
+          </div>
+          <p class="keyboard-note">Press <kbd>Space</kbd> to start or pause</p>
+          <p class="status" id="status" role="status">Ready when you are.</p>
+        </section>
+
+        <aside class="side-panel" aria-label="Session settings and progress">
+          <section class="intention-card">
+            <p class="eyebrow">01 / SET AN INTENTION</p>
+            <h2>What matters right now?</h2>
+            <label for="task">Your one thing</label>
+            <input id="task" maxlength="120" placeholder="e.g. Read one chapter" autocomplete="off">
+            <p class="muted">Small and specific is a great place to start.</p>
+          </section>
+
+          <section class="duration-card">
+            <p class="eyebrow">02 / MAKE SOME SPACE</p>
+            <h2>Find your rhythm.</h2>
+            <div class="presets" role="group" aria-label="Focus duration">
+              <button data-minutes="15" aria-pressed="false">15 min</button>
+              <button data-minutes="25" aria-pressed="true" class="selected">25 min</button>
+              <button data-minutes="50" aria-pressed="false">50 min</button>
+            </div>
+            <form id="duration-form">
+              <label for="minutes">Or choose your own <span>(1–120 min)</span></label>
+              <div class="custom-row"><input id="minutes" type="number" min="1" max="120" step="1" value="25" required><button type="submit" class="apply">Set time</button></div>
+            </form>
+            <p class="muted">Breaks are 5 minutes. Changing focus time resets your focus session.</p>
+          </section>
+
+          <section class="progress-card" aria-label="Today's progress">
+            <div><p class="eyebrow">TODAY, AT YOUR PACE</p><strong id="session-count">0</strong><span> completed focus sessions</span></div>
+            <span class="sprout" aria-hidden="true">✳</span>
+          </section>
+        </aside>
+      </div>
+      <p class="closing-note">A little focus goes a long way. So does a little rest.</p>
+    </main>
+    <footer><span>Made for a quieter kind of productivity.</span><span>No accounts. No distractions. Just you.</span></footer>
+  </div>
+</body>
+</html>
